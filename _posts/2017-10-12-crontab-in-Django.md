@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Django with crontab
-date: 2017-10-12
-tag: Python, Django
+title:  "crontab in Django"
+date:   2017-10-12
+tags: Python Django
 ---
 
 ## 需求
@@ -106,13 +106,13 @@ CRONJOBS = [
 python manage.py crontab add
 ```
 
-可以使用 `python manage.py show` 和 `crontab -l` 来检查。
+可以使用 `python manage.py show` 和 `crontab -l` 来检查，然后使用 `python manage.py remove` 来删除定时任务。
 
 ---
 
 最后，django-crontab 模块并不适用于 Windows 平台，毕竟是对 Linux 底层的调用。
 
-更多信息请参考：https://github.com/kraiz/django-crontab
+更多信息请参考：[https://github.com/kraiz/django-crontab](https://github.com/kraiz/django-crontab)
 
 
 
