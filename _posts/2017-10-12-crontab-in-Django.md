@@ -2,7 +2,7 @@
 layout: post
 title:  "crontab in Django"
 date:   2017-10-12
-tags: Python Django
+tags: Python
 ---
 
 ### 需求
