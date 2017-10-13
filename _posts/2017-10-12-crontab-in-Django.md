@@ -111,18 +111,18 @@ python manage.py crontab add
 ```
 # 添加定时任务
 vagrant@glon:~/codes$ python manage.py crontab add 
-  adding cronjob: (e04e6fee3176c33ce9fd5961a00e684d) -> ('*/1 * * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
+  adding cronjob: (e04e6fee3176c33ce9fd5961a00e684d) -> ('0 7 * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
 
 # 查看定时任务
 vagrant@glon:~/codes$ python manage.py crontab show 
 Currently active jobs in crontab:
-e04e6fee3176c33ce9fd5961a00e684d -> ('*/1 * * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
+e04e6fee3176c33ce9fd5961a00e684d -> ('0 7 * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
 vagrant@glon:~/codes$ crontab -l
-*/1 * * * * /home/vagrant/.pyenv/versions/3.5.2/envs/ycf-venv-3.5.2/bin/python /home/vagrant/codes/manage.py crontab run e04e6fee3176c33ce9fd5961a00e684d >>/tmp/jira_daily_statistics.log # django-cronjobs for ycfdbs
+*/1 * * * * /home/vagrant/.pyenv/versions/3.5.2/envs/venv-3.5.2/bin/python /home/vagrant/codes/manage.py crontab run e04e6fee3176c33ce9fd5961a00e684d >>/tmp/jira_daily_statistics.log # django-cronjobs for codes
 
-# 删除指定定时任务
+# 删除指定的定时任务
 vagrant@glon:~/codes$ python manage.py crontab remove e04e6fee3176c33ce9fd5961a00e684d
-removing cronjob: (e04e6fee3176c33ce9fd5961a00e684d) -> ('*/1 * * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
+removing cronjob: (e04e6fee3176c33ce9fd5961a00e684d) -> ('0 7 * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
 
 # 检查
 vagrant@glon:~/codes$ crontab -l
