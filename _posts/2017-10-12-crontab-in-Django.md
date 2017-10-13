@@ -5,18 +5,18 @@ date:   2017-10-12
 tags: Python Django
 ---
 
-## 需求
+### 需求
 
 > 有个小需求，需要定时统计每天 JIRA 发布过的任务。由于当前的 Web 框架用的是 Django，对这个成熟的框架而言，轮子多，解决方案自然不少，期间也有考虑过使用 Celery，但明显还用不着这个 "牛刀"，于是使用了 django-crontab 来解决。
 
-## 安装
+### 安装
 
 使用 pip 来安装：
 ```
 pip install django-crontab
 ```
 
-## 使用方法
+### 使用方法
 
 ```
 vagrant@glon:~$ python manage.py crontab -h
@@ -49,7 +49,7 @@ optional arguments:
   --no-color            Don't colorize the command output.
 ```
 
-## 添加 django-crontab 到 INSTALLED_APPS
+### 添加 django-crontab 到 INSTALLED_APPS
 
 ```
 INSTALLED_APPS = [
@@ -60,7 +60,7 @@ INSTALLED_APPS = [
 ```
 至此，基本工作完成。
 
-## 自定义函数
+### 自定义函数
 
 接下来，编写要定时执行的业务函数。
 
@@ -81,7 +81,7 @@ def daily_statistics():
     ....
 ```
 
-## 配置定时任务
+### 配置定时任务
 
 好了，定时业务编写完成，接下来要配置定时任务。
 
