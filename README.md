@@ -1,4 +1,4 @@
-This is Glon Ho's notes for life and work.
+This is Glon Ho's notes about life and work.
 
 
 #### 感谢   

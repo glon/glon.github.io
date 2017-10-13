@@ -19,7 +19,7 @@ pip install django-crontab
 ### 使用方法
 
 ```
-vagrant@glon:~$ python manage.py crontab -h
+vagrant@glon:~/codes$ python manage.py crontab -h
 usage: manage.py crontab [-h] [--version] [-v {0,1,2,3}] [--settings SETTINGS]
                          [--pythonpath PYTHONPATH] [--traceback] [--no-color]
                          {add,show,remove,run} [jobhash]
@@ -108,6 +108,28 @@ python manage.py crontab add
 
 可以使用 `python manage.py show` 和 `crontab -l` 来检查，然后使用 `python manage.py remove` 来删除定时任务。
 
+```
+# 添加定时任务
+vagrant@glon:~/codes$ python manage.py crontab add 
+  adding cronjob: (e04e6fee3176c33ce9fd5961a00e684d) -> ('*/1 * * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
+
+# 查看定时任务
+vagrant@glon:~/codes$ python manage.py crontab show 
+Currently active jobs in crontab:
+e04e6fee3176c33ce9fd5961a00e684d -> ('*/1 * * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
+vagrant@glon:~/codes$ crontab -l
+*/1 * * * * /home/vagrant/.pyenv/versions/3.5.2/envs/ycf-venv-3.5.2/bin/python /home/vagrant/codes/manage.py crontab run e04e6fee3176c33ce9fd5961a00e684d >>/tmp/jira_daily_statistics.log # django-cronjobs for ycfdbs
+
+# 删除指定定时任务
+vagrant@glon:~/codes$ python manage.py crontab remove e04e6fee3176c33ce9fd5961a00e684d
+removing cronjob: (e04e6fee3176c33ce9fd5961a00e684d) -> ('*/1 * * * *', 'jira_workload.cron.daily_statistics', '>>/tmp/jira_daily_statistics.log')
+
+# 检查
+vagrant@glon:~/codes$ crontab -l
+vagrant@glon:~/codes$ python manage.py crontab show 
+Currently active jobs in crontab:
+vagrant@glon:~/codes$ 
+```
 ---
 
 最后，django-crontab 模块并不适用于 Windows 平台，毕竟是对 Linux 底层的调用。
